@@ -1,3 +1,20 @@
+def get_message
+    print "Message to encrypt: "
+    message = gets.chomp
+    return message
+end
+
+def get_key
+    print "...Shift Key: "
+    key = gets.chomp.to_i
+
+    while key == 0 do 
+        get_key 
+    end
+
+    return key
+end
+
 def caesar_cipher(str, key=3)
     
     ordinals = str.codepoints
@@ -25,4 +42,6 @@ def caesar_cipher(str, key=3)
     return encrypted_msg
 end
 
-puts caesar_cipher("This is a common secret message", 7)
+message = get_message
+key = get_key
+puts caesar_cipher(message, key)
